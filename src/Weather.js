@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
+import WeatherIcon from "./WeatherIcon";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -17,7 +19,7 @@ const [city, setCity] = useState(props.defaultCity);
         wind: response.data.wind.speed,
         city: response.data.name,
         description: response.data.weather[0].description,
-        iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        icon: response.data.weather[0].icon,
         humidity: response.data.main.humidity,
         date: new Date(response.data.dt * 1000)
     });
@@ -69,17 +71,16 @@ return (
         </ul>
         <div className="row mt-3">
             <div className="col-6">
-                <img src={weatherData.iconUrl} alt={weatherData.description}/>
+                <WeatherIcon code={weatherData.icon} />
             </div>
             <div className="col-6">
                 <ul>
-                    
-                    <li>Precipitation: 15%</li>
                     <li>Humidity: {weatherData.humidity} %</li>
                     <li>Wind: {weatherData.wind} km/h</li>
                 </ul>
             </div>
         </div>
+        <WeatherForecast city={weatherData.city} />
     </div>
     );
 } else {
