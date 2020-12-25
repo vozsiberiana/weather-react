@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -63,7 +64,8 @@ return (
         <ul>
         <li><FormattedDate date={weatherData.date} /></li>
         <li className="text-capitalize">{weatherData.description}</li>
-        <li><span className="temperature">{Math.round(weatherData.temperature)}</span> <span className="unit">C</span></li>
+        <li><WeatherTemperature celsius={weatherData.temperature} /></li>
+
         </ul>
         <div className="row mt-3">
             <div className="col-6">
