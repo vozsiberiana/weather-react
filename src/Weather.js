@@ -7,7 +7,7 @@ import "./Weather.css";
 import WeatherLogo from "./weatherlogo.svg";
 
 export default function Weather(props) {
-    
+    const [unit, setUnit] = useState("celsius");
     const [weatherData, setWeatherData] = useState({ ready: false });
 const [city, setCity] = useState(props.defaultCity);
 
@@ -63,7 +63,7 @@ return (
         <h1>{weatherData.city}</h1>
         <ul className="main_description">
             <li><FormattedDate /></li>
-            <li><WeatherTemperature celsius={weatherData.temperature} /></li>
+            <li><WeatherTemperature celsius={weatherData.temperature} unit={unit} setUnit={setUnit} /></li>
         </ul>
         <div className="row mt-3">
             <div className="col-6 icon">
@@ -77,15 +77,12 @@ return (
                 </ul>
             </div>
         </div>
-        <WeatherForecast city={weatherData.city} />
+        <WeatherForecast city={weatherData.city} unit={unit} setUnit={setUnit} />
     </div>
     );
 } else {
 search();
     return "loading..";
-}
-
-
-    
+} 
     
 }
