@@ -5,6 +5,7 @@ import WeatherTemperature from "./WeatherTemperature";
 import WeatherForecast from "./WeatherForecast";
 import WeatherIcon from "./WeatherIcon";
 import "./Weather.css";
+import WeatherLogo from "./weatherlogo.svg";
 
 export default function Weather(props) {
     
@@ -67,7 +68,7 @@ return (
         </ul>
         <div className="row mt-3">
             <div className="col-6 icon">
-                <WeatherIcon code={weatherData.icon} />
+                <img src={WeatherLogo} alt="icon" className="image"/>
             </div>
             <div className="col-6">
                 <ul className="info">

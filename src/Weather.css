@@ -41,9 +41,8 @@
 }
 
 .Weather .icon {
-  text-align: center;
-  height: 64px;
-  line-height: 64px;
+  text-align: right;
+  line-height: 150px;
 }
 
 .Weather .info li {
@@ -51,6 +50,10 @@
   font-weight: 100;
   line-height: 16px;
   list-style: none;
+}
+
+.Weather .image {
+  max-width: 150px;
 }
 
 .Weather .form-control {
