@@ -44,37 +44,34 @@ setCity(event.target.value);
 if (weatherData.ready) {
 return (
     <div className="Weather">
-    <form onSubmit={handleSubmit}>
-    <div className="row">
-    <div className="col-9">
-        <input type="search" 
-            placeholder="Enter a city.."
-            className="form-control"
-            autoFocus="on"
-            onChange={handleCityChange}
-        />
-        </div>
-        <div className="col-3">
-        <input type="submit" 
-            value="Search" 
-            className="btn btn-primary w-100" />
-            </div>
-    </div>
-    </form>
+            <form onSubmit={handleSubmit}>
+              <div className="form-row d-flex justify-content-center">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Type a city.."
+                  autoFocus="on"
+                  onChange={handleCityChange}
+                />
+                <button type="submit" className="btn btn-primary">
+                  <i className="fa fa-search"></i>
+                </button>
+              </div>
+            </form> 
+
 
         <h1>{weatherData.city}</h1>
-        <ul>
-        <li><FormattedDate date={weatherData.date} /></li>
-        <li className="text-capitalize">{weatherData.description}</li>
-        <li><WeatherTemperature celsius={weatherData.temperature} /></li>
-
+        <ul className="main_description">
+            <li><FormattedDate date={weatherData.date} /></li>
+            <li><WeatherTemperature celsius={weatherData.temperature} /></li>
         </ul>
         <div className="row mt-3">
-            <div className="col-6">
+            <div className="col-6 icon">
                 <WeatherIcon code={weatherData.icon} />
             </div>
             <div className="col-6">
-                <ul>
+                <ul className="info">
+                    <li className="text-capitalize">{weatherData.description}</li>
                     <li>Humidity: {weatherData.humidity} %</li>
                     <li>Wind: {weatherData.wind} km/h</li>
                 </ul>
