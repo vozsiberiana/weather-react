@@ -3,7 +3,6 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherForecast from "./WeatherForecast";
-import WeatherIcon from "./WeatherIcon";
 import "./Weather.css";
 import WeatherLogo from "./weatherlogo.svg";
 
@@ -63,7 +62,7 @@ return (
 
         <h1>{weatherData.city}</h1>
         <ul className="main_description">
-            <li><FormattedDate date={weatherData.date} /></li>
+            <li><FormattedDate /></li>
             <li><WeatherTemperature celsius={weatherData.temperature} /></li>
         </ul>
         <div className="row mt-3">
